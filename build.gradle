@@ -183,7 +183,10 @@ android {
         }
 
         debug {
-            applicationIdSuffix ".debug"
+            if (System.env.OC_RELEASE_KEYSTORE) {
+                signingConfig signingConfigs.release
+            }
+            //applicationIdSuffix ".debug"
         }
     }
 
